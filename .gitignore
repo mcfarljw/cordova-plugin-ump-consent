@@ -1,0 +1,10 @@
+# Directories
+.gradle/
+node_modules/
+test/platforms/
+test/plugins/
+
+# Files
+*.log
+*.project
+build.json

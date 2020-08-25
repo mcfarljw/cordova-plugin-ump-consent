@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-ump-consent"
+        version="0.1.0">
+
+  <name>Billing Plugin</name>
+  <description>Cordova plugin for Obtaining Consent with the User Messaging Platform</description>
+  <author>Joshua McFarland</author>
+  <license>MIT</license>
+  <keywords>cordova,ump,consent,funding,choices</keywords>
+
+  <engines>
+    <engine name="cordova" version=">=10.0.0" />
+    <engine name="cordova-android" version=">=9.0.0" />
+    <engine name="cordova-ios" version=">=6.1.0" />
+  </engines>
+
+  <js-module src="www/consent.js" name="UMPConsentPlugin">
+    <clobbers target="plugins.consent" />
+  </js-module>
+
+  <dependency id="cordova-plugin-add-swift-support" version="2.0.2" />
+
+  <platform name="android">
+
+    <preference name="APP_ID_ANDROID" default="test" />
+
+    <config-file target="config.xml" parent="/*">
+      <feature name="UMPConsentPlugin" >
+        <param name="android-package" value="com.jernung.plugins.ump.UMPConsentPlugin" />
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+      <uses-permission android:name="android.permission.INTERNET" />
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="$APP_ID_ANDROID" />
+    </config-file>
+
+    <framework src="com.google.android.ump:user-messaging-platform:1.0.0" />
+
+    <source-file src="src/android/UMPConsentPlugin.java" target-dir="src/com/jernung/plugins/ump" />
+
+  </platform>
+
+  <platform name="ios">
+
+    <preference name="APP_ID_IOS" default="test" />
+
+    <config-file target="config.xml" parent="/*">
+			<feature name="UMPConsentPlugin">
+				<param name="ios-package" value="UMPConsentPlugin" />
+				<param name="onload" value="true" />
+			</feature>
+		</config-file>
+
+    <config-file target="*-Info.plist" parent="GADApplicationIdentifier">
+        <string>$APP_ID_IOS</string>
+    </config-file>
+
+    <config-file target="*-Info.plist" parent="NSUserTrackingUsageDescription">
+        <string>This identifier will be used to deliver personalized ads to you.</string>
+    </config-file>
+
+    <podspec>
+        <config>
+            <source url="https://github.com/CocoaPods/Specs.git" />
+        </config>
+        <pods>
+            <pod name="GoogleUserMessagingPlatform" spec="~> 1.1.0" />
+        </pods>
+    </podspec>
+
+    <!-- <framework src="StoreKit.framework" /> -->
+
+    <source-file src="src/ios/UMPConsentPlugin.swift" />
+
+  </platform>
+
+</plugin>
