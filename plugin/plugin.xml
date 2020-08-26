@@ -72,8 +72,6 @@
         </pods>
     </podspec>
 
-    <!-- <framework src="StoreKit.framework" /> -->
-
     <source-file src="src/ios/UMPConsentPlugin.swift" />
 
   </platform>
