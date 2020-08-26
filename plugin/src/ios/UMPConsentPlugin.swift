@@ -9,6 +9,12 @@ class UMPConsentPlugin : CDVPlugin {
      private func actionRequest(command: CDVInvokedUrlCommand) {
         let callbackId = command.callbackId
 
+//        TODO: Can be enabled to debug based on geographical location.
+//        let debugSettings = UMPDebugSettings()
+//        debugSettings.testDeviceIdentifiers = ["ABB898CE-3556-4919-998B-9E5FD9C309AC"]
+//        debugSettings.geography = UMPDebugGeography.EEA
+//        requestParameters.debugSettings = debugSettings
+
         requestParameters.tagForUnderAgeOfConsent = false
 
         UMPConsentInformation.sharedInstance.requestConsentInfoUpdate(
@@ -37,7 +43,7 @@ class UMPConsentPlugin : CDVPlugin {
                 }
             })
         } else {
-            self.commandDelegate.send(CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "Form unavailable!"), callbackId: callbackId)
+            self.commandDelegate.send(CDVPluginResult(status: CDVCommandStatus_OK, messageAs: self.getConsentResponse()), callbackId: callbackId)
         }
     }
 
