@@ -47,7 +47,7 @@ const plugin = {
             function (response) {
               plugin._update(response)
 
-              resolve()
+              resolve(response)
             },
             reject,
             'UMPConsentPlugin',
@@ -64,7 +64,7 @@ const plugin = {
             function (response) {
               plugin._update(response)
 
-              resolve()
+              resolve(response)
             },
             reject,
             'UMPConsentPlugin',
