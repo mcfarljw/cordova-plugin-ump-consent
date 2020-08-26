@@ -25,10 +25,9 @@
 
     <preference name="APP_ID_ANDROID" default="test" />
 
-    <config-file target="config.xml" parent="/*">
+    <config-file target="res/xml/config.xml" parent="/*">
       <feature name="UMPConsentPlugin" >
         <param name="android-package" value="com.jernung.plugins.ump.UMPConsentPlugin" />
-        <param name="onload" value="true" />
       </feature>
     </config-file>
 
@@ -53,7 +52,6 @@
     <config-file target="config.xml" parent="/*">
 			<feature name="UMPConsentPlugin">
 				<param name="ios-package" value="UMPConsentPlugin" />
-				<param name="onload" value="true" />
 			</feature>
 		</config-file>
 
