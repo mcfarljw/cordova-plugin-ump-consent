@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-ump-consent",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Cordova plugin for Obtaining Consent with the User Messaging Platform.",
   "author": "Joshua McFarland",
   "license": "MIT",
